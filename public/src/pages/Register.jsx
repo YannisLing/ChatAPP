@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components"
-
+import Logo from "../assets/logo.svg"
 function Register() {
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,7 +16,7 @@ function Register() {
       <FormContainer>
         <form onSubmit={(event)=>handleSubmit(event)}>
           <div className="brand">
-            <img src="" alt="" />{/*应用的图标*/}
+            <img src={Logo} alt="Logo" />{/*应用的图标*/}
             <h1>YanniChat</h1>
           </div>
 
