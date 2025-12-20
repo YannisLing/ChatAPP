@@ -2,6 +2,8 @@ import React ,{useState, useEffect} from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components"
 import Logo from "../assets/logo.svg"
+import {ToastContainer,toast} from "react-toastify"
+import "react-toastify/dist/ReactToastify.css"
 function Register() {
   const [values,setValues]=useState({
     username:"",
@@ -11,8 +13,19 @@ function Register() {
   })
   const handleSubmit = (event) => {
     event.preventDefault();
-    alert("form")
-    // Handle form submission
+    handleValidation();//提交后验证表单
+  };
+  const handleValidation = () =>{
+    const {password, confirmPassword,username,email}=values;//解构values
+    if(password!==confirmPassword){//密码不一致抛出提示
+      toast.error("密码和确认密码应该一致",{
+        position:"bottom-right",
+        autoClose:8000,
+        pauseOnHover:true,
+        draggable:true,
+        theme:"dark",
+      });
+    }
   };
   const handleChange = (event) => {
     setValues({...values,[event.target.name]:event.target.value})
@@ -34,6 +47,7 @@ function Register() {
           <span>已经有一个账号 ?点这里 <Link to="/login">登录</Link></span>
         </form>
       </FormContainer>
+      <ToastContainer/>
     </>
   );
 
