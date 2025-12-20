@@ -3,14 +3,19 @@ import { Link } from "react-router-dom";
 import styled from "styled-components"
 import Logo from "../assets/logo.svg"
 function Register() {
- 
+  const [values,setValues]=useState({
+    username:"",
+    email:"",
+    password:"",
+    confirmPassword:"",
+  })
   const handleSubmit = (event) => {
     event.preventDefault();
     alert("form")
     // Handle form submission
   };
   const handleChange = (event) => {
-    
+    setValues({...values,[event.target.name]:event.target.value})
   };
   return (
     <>
@@ -87,6 +92,7 @@ const FormContainer = styled.div`
     border-radius: 0.4rem;
     font-size: 1rem;
     text-transform: uppercase;
+    transition: 0.5s ease-in-out;
     &:hover {
       background-color: #4e0eff;
     }
@@ -95,7 +101,7 @@ const FormContainer = styled.div`
     color: white;
     text-transform: uppercase;
     a {
-      color: #4e0eff;
+      color: #309db1ff;
       text-decoration: none;
       font-weight: bold;
     }
