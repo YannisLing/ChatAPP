@@ -11,20 +11,34 @@ function Register() {
     password:"",
     confirmPassword:"",
   })
-  const handleSubmit = (event) => {
-    event.preventDefault();
-    handleValidation();//提交后验证表单
-  };
-  const handleValidation = () =>{
-    const {password, confirmPassword,username,email}=values;//解构values
-    if(password!==confirmPassword){//密码不一致抛出提示
-      toast.error("密码和确认密码应该一致",{
+  const toastOptions={
         position:"bottom-right",
         autoClose:8000,
         pauseOnHover:true,
         draggable:true,
         theme:"dark",
-      });
+      }
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    if(handleValidation()){
+
+    };//提交后验证表单,验证通过调用api
+  };
+  
+  const handleValidation = () =>{
+    const {password, confirmPassword,username,email}=values;//解构values
+    if(password!==confirmPassword){//密码不一致抛出提示
+      toast.error("密码和确认密码应该一致",toastOptions);
+      return false;
+    }else if(username.length<2){
+      toast.error("用户名长度应该不小于2",toastOptions);
+      return false;
+    }else if(password.length<8){
+      toast.error("密码长度应该不小于8",toastOptions);
+      return false;
+    }else if(email===""){
+      toast.error("电子邮件地址是必须的",toastOptions);
+      return false;
     }
   };
   const handleChange = (event) => {
