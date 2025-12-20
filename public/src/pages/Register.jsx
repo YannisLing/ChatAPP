@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components"
 import Logo from "../assets/logo.svg"
 function Register() {
+ 
   const handleSubmit = (event) => {
     event.preventDefault();
     alert("form")
@@ -20,12 +21,12 @@ function Register() {
             <h1>YanniChat</h1>
           </div>
 
-          <input type="text" placeholder="Username" name="username" onChange={e=>handleChange(e)} />
-          <input type="email" placeholder="Email" name="email" onChange={e=>handleChange(e)} />
-          <input type="password" placeholder="Password" name="password" onChange={e=>handleChange(e)} />
-          <input type="password" placeholder="Confirm Password" name="confirmPassword" onChange={e=>handleChange(e)} />
-          <button type="submit">Create User</button>
-          <span>already have an account ? <Link to="/login">Login</Link></span>
+          <input type="text" placeholder="用户名" name="username" onChange={e=>handleChange(e)} />
+          <input type="email" placeholder="邮件" name="email" onChange={e=>handleChange(e)} />
+          <input type="password" placeholder="密码" name="password" onChange={e=>handleChange(e)} />
+          <input type="password" placeholder="确认密码" name="confirmPassword" onChange={e=>handleChange(e)} />
+          <button type="submit">创建用户</button>
+          <span>已经有一个账号 ?点这里 <Link to="/login">登录</Link></span>
         </form>
       </FormContainer>
     </>
