@@ -32,15 +32,14 @@ function Register() {
         email,
         password,
       });
-    };//提交后验证表单,验证通过调用api
-    if(data.status===false){
-      toast.error(data.msg,toastOptions);
-    }
-    if(data.status === true){
-      localStorage.setItem('chat-app-user',JSON.stringify(data.user));
-      navigate("/");
-    }
-
+      if(data.status===false){
+        toast.error(data.msg,toastOptions);
+      }
+      if(data.status === true){
+        localStorage.setItem('chat-app-user',JSON.stringify(data.user));
+        navigate("/");//将页面导航到聊天页面；
+      }
+    };//提交后验证表单,验证通过调用api    
   };
   
   const handleValidation = () =>{
