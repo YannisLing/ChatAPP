@@ -25,7 +25,7 @@ function Register() {
   const handleSubmit = async (event) => {
     event.preventDefault();
     if(handleValidation()){
-      console.log("in validation",registerRoute)
+      
       const {password,username,email}=values;
       const {data} = await axios.post(registerRoute,{
         username,
@@ -39,7 +39,9 @@ function Register() {
         localStorage.setItem('chat-app-user',JSON.stringify(data.user));
         navigate("/");//将页面导航到聊天页面；
       }
-    };//提交后验证表单,验证通过调用api    
+    };//提交后验证表单,验证通过调用api
+    
+
   };
   
   const handleValidation = () =>{
