@@ -24,7 +24,7 @@ const userSchema = new mongoose.Schema({
     default:false,
 
   },
-  abatarImage:{
+  abvtarImage:{
     type:String,
     default:"",
 
